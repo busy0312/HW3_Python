@@ -18,7 +18,7 @@ with open(csvpath, mode="r") as csvfile:
         change =int(i[1])-init_value
         profit.append(change)
         init_value=(int(i[1]))
-    average=sum(profit)/(len(profit)-1)
+    average="{:.2f}".format(sum(profit)/(len(profit)-1))
     increase=max(profit)
     decrease=min(profit)
     months_increase=profit.index(max(profit))
@@ -28,11 +28,11 @@ with open(csvpath, mode="r") as csvfile:
     print("Financial Analysis")
     print("----------------------------")
     print("Total months: "+ str(length))
-    print("Total:$"+str(total))
+    print(f"Total:${str(total)}")
     print("Average Change:$"+str(average))
     print("Greatest Increase in Profits: "+str(in_month)+" ("+str(increase)+")")
     print("Greatest Decrease in Profits: "+str(de_month)+" ("+str(decrease)+")")
-
+   
 
 pybanktxt = open("Pybank.txt", "w")
 print("Financial Analysis", file=pybanktxt)
@@ -43,3 +43,5 @@ print("Average Change:$"+str(average), file=pybanktxt)
 print("Greatest Increase in Profits: "+str(in_month)+" ("+str(increase)+")", file=pybanktxt)
 print("Greatest Decrease in Profits: "+str(de_month)+" ("+str(decrease)+")", file=pybanktxt)
 pybanktxt.close()
+
+
